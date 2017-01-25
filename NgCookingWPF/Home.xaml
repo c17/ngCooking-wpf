@@ -6,9 +6,152 @@
       xmlns:local="clr-namespace:NgCookingWPF"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="Home">
+      Title="MainWindow" Height="720" Width="1280" Background="White">
 
-    <Grid>
-        
-    </Grid>
+
+    <Grid Name="wrapper" Width="1280" Height="720" HorizontalAlignment="Center">
+            <!--MAIN GRID-->
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="23*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="43*"></ColumnDefinition>
+                <ColumnDefinition Width="117*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Grid.Row="1" Name="NavGrid">
+                <!-- SECOND GRID LEFT COLUMN-->
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <!-- THIRD GRID FIRST ROW-->
+                <Grid Grid.Column="0" Grid.Row="0" Name="Redirctions" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Acceuil</TextBlock>
+                    <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Recettes</TextBlock>
+                    <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Ingrédients</TextBlock>
+                    <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Communauté</TextBlock>
+                </Grid>
+                <!-- THIRD GRID FIRST ROW-->
+
+                <!-- THIRD GRID SECOND ROW-->
+                <Grid Grid.Column="0" Grid.Row="1" Name="ConnexionForm" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">Connexion</Button>
+                    <Button Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">Deconnexion</Button>
+                    <Button Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">Profil</Button>
+                </Grid>
+                <!-- THIRD GRID SECOND ROW-->
+            </Grid>
+            <!-- SECOND GRID LEFT COLUMN-->
+
+            <!-- SECOND GRID RIGHT COLUMN-->
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="53*"></RowDefinition>
+                    <RowDefinition Height="235*"></RowDefinition>
+                    <RowDefinition Height="100*"></RowDefinition>
+                    <RowDefinition Height="235*"></RowDefinition>
+                    <RowDefinition Height="100*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <!-- TEXT BLOCK FIRST ROW-->
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Margin="293,0,413,24">Bienvenue sur NgCooking</TextBlock>
+                <!-- TEXT BLOCK FIRST ROW-->
+
+                <!-- THIRD GRID SECOND ROW-->
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35*"></RowDefinition>
+                        <RowDefinition Height="199*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <!-- TEXT BLOCK FIRST ROW-->
+                    <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Margin="321,2,487,10">Meilleurs Recettes</TextBlock>
+                    <!-- TEXT BLOCK FIRST ROW-->
+
+                    <!-- STACKPANEL SECOND ROW-->
+                    <ItemsControl Grid.Row="1" Name="BestRecipes">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="50 0 0 0 ">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Text="{Binding Name}"></TextBlock>
+                                    <Image Grid.Row="1" Source="{Binding Img}"></Image>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!-- STACKPANEL SECOND ROW-->
+                </Grid>
+
+                <Image Margin="0 10 0 10" Grid.Row="2" Stretch="Fill" Source="pack://application:,,,/img/fruitland-background.jpg"></Image>
+                <Button Grid.Row="2" Width="100" Height="50">Nouvelle Recette</Button>
+                <ItemsControl Grid.Row="3" Name="NewRecipes">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="50 0 0 0 ">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Text="{Binding Name}"></TextBlock>
+                                <Image Grid.Row="1" Source="{Binding Img}"></Image>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <!-- THIRD GRID SECOND ROW-->
+            </Grid>
+            <!-- SECOND GRID RIGHT COLUMN-->
+        </Grid>
+        <!-- /MAIN GRID-->
+
 </Page>

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Windows.Media.Imaging;
 
 namespace apis.Client.Models
 {
@@ -25,5 +26,6 @@ namespace apis.Client.Models
 
         [JsonProperty("picture")]
         public String Picture { get; set; }
+        public BitmapImage Img { get; set; }
     }
 }
