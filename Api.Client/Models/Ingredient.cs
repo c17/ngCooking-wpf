@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Windows.Media.Imaging;
 
 namespace apis.Client.Models
 {
@@ -29,5 +30,7 @@ namespace apis.Client.Models
 
         [JsonIgnore]
         public ICollection<IngredientRecette> IngredientsRecettes { get; set; }
+        public BitmapImage Img { get; set; }
+        public List<BitmapImage> SimiIng { get; set; }
     }
 }

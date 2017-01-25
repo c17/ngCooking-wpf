@@ -14,9 +14,13 @@
             <RowDefinition Height="7*"/>
             <RowDefinition Height="16*"/>
         </Grid.RowDefinitions>
+
+        <!-- Title -->
         <TextBlock x:Name="Title" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" 
                    TextWrapping="Wrap" Text="Ingredients" TextAlignment="Center" 
                    Margin="0,0,10,0" Height="80" Width="1262" FontStyle="Italic"/>
+
+        <!-- Form -->
         <Grid HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="1280" Background="LightGray" Height="186">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
@@ -44,6 +48,7 @@
             <TextBox x:Name="CategoryFilter" Grid.Column="1" HorizontalAlignment="Left" Height="50" Width="890" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30" Margin="10,10,0,0" Grid.RowSpan="2" TextChanged="CategoryFilter_TextChanged"/>
         </Grid>
 
+        <!-- Ingredient Display -->
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2">
             <ItemsControl Name="Content">
                 <ItemsControl.ItemsPanel>
@@ -73,12 +78,12 @@
                                             <ColumnDefinition Width="2*"/>
                                             <ColumnDefinition Width="5*"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock x:Name="Name"     Text="{Binding Name}"     HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30"/>
-                                        <TextBlock x:Name="Category" Text="{Binding Category}" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
-                                        <TextBlock x:Name="Calories" Text="{Binding Calories}" HorizontalAlignment="Left" Margin="124,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
+                                        <TextBlock x:Name="NameTxtBlock"     Text="{Binding Name}"       HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30"/>
+                                        <TextBlock x:Name="CategoryTxtBlock" Text="{Binding CategoryId}" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
+                                        <TextBlock x:Name="CaloriesTxtBlock" Text="{Binding Calories}"   HorizontalAlignment="Left" Margin="124,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
                                         <TextBlock x:Name="SimiIngTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Ingredients Similaires :" VerticalAlignment="Top" FontSize="25"/>
 
-
+                                        <!--Similar Ingredients-->
                                         <ItemsControl Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SimiIng}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
@@ -100,7 +105,7 @@
 
                                     </Grid>
                                 </Grid>
-                                <Image x:Name="image" Margin="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Top" Height="120" Width="120" Source="{Binding ImgPath}"/>
+                                <Image x:Name="image" Margin="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Top" Height="120" Width="120" Source="{Binding Img}"/>
                             </Grid>
                         </Border>
                     </DataTemplate>

@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace NGCookingWPF
 {
@@ -20,47 +12,71 @@ namespace NGCookingWPF
     /// </summary>
     public partial class Ingredients : Page
     {
-        class Ingredient
-        {
-            public string Name { get; set; }
-            public string Category { get; set; }
-            public string ImgPath { get; set; }
-            public string Calories { get; set; }
-            public List<string> SimiIng { get; set; }
+        // DEBUG
+        //public class Ingredient
+        //{
+        //    public string Name { get; set; }
+        //    public string Category { get; set; }
+        //    public string ImgPath { get; set; }
+        //    public string Calories { get; set; }
+        //    public List<string> SimiIng { get; set; }
 
-            public Ingredient(string name, string cat, string img, int cal)
-            {
-                Name = name;
-                Category = cat;
-                ImgPath = img;
-                Calories = cal.ToString() + " kcal";
-                SimiIng = new List<string>();
-            }
-        }
+        //    public Ingredient(string name, string cat, string img, int cal)
+        //    {
+        //        Name = name;
+        //        Category = cat;
+        //        ImgPath = img;
+        //        Calories = cal.ToString() + " kcal";
+        //        SimiIng = new List<string>();
+        //    }
+        //}
 
         public Ingredients()
         {
             InitializeComponent();
 
-            Ingredient Ing1 = new Ingredient("Boeuf", "Viande", "/img/ingredients/boeuf.jpg", 310);
-            Ingredient Ing2 = new Ingredient("Poulet", "Viande", "/img/ingredients/poulet.jpg", 230);
-            Ingredient Ing3 = new Ingredient("Pomme", "Fruit", "/img/ingredients/pomme.jpg", 80);
+            apis.Client.ApiClient _apiClient = _apiClient = new apis.Client.ApiClient("http://localhost:5000/api");
+            List<apis.Client.Models.Ingredient> src = _apiClient.Get<List<apis.Client.Models.Ingredient>>("ingredients").Result;
+            src = src.OrderBy(o => o.Name).ToList();
 
-            Ing1.SimiIng.Add("/img/ingredients/poulet.jpg");
-            Ing2.SimiIng.Add("/img/ingredients/boeuf.jpg");
-            Ing3.SimiIng.Add("/img/ingredients/poire.jpg");
-            Ing3.SimiIng.Add("/img/ingredients/ananas.jpg");
-            Ing3.SimiIng.Add("/img/ingredients/kiwi.jpg");
+            foreach (var item in src)
+            {
+                String url = String.Format("{0}/img/ingredients/{1}", "http://localhost:5000/", item.Picture);
+                var bitmapImage = new BitmapImage();
+                bitmapImage.BeginInit();
+                bitmapImage.UriSource = new Uri(url); ;
+                bitmapImage.EndInit();
+                item.Img = bitmapImage;
 
-            List<Ingredient> IngList = new List<Ingredient>();
+            }
 
-            IngList.Add(Ing1);
-            IngList.Add(Ing2);
-            IngList.Add(Ing3);
+            foreach (var item in src)
+            {
+                item.SimiIng = new List<BitmapImage>();
+                foreach (var ingredients in src)
+                {
+                    if (item.CategoryId == ingredients.CategoryId)
+                    {
+                        item.SimiIng.Add(ingredients.Img);
+                    }
+                }
+            }
 
-            Content.ItemsSource = IngList;
+            NameFilter.LostFocus += TargetUpdatedHandler;
+            CategoryFilter.LostFocus += TargetUpdatedHandler;
+            CaloriesMin.LostFocus += TargetUpdatedHandler;
+            CaloriesMax.LostFocus += TargetUpdatedHandler;
+
+            Content.ItemsSource = src;
         }
 
+        private void TargetUpdatedHandler(object sender, RoutedEventArgs e)
+        {
+            // DEBUG
+            //MessageBox.Show("Modification de " + sender);
+        }
+
+        #region UIElements
         private void NameFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -80,5 +96,6 @@ namespace NGCookingWPF
         {
 
         }
+        #endregion
     }
 }
