@@ -35,8 +35,10 @@ namespace NgCookingWPF
 
         private void RecetteGrid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+
+            string url = String.Format("{0}{1}", "Communaute.xaml?parameter=", e.Source.ToString());
             NavigationService navService = NavigationService.GetNavigationService(this);
-            navService.Navigate(new System.Uri("Communaute.xaml", UriKind.RelativeOrAbsolute));
+            navService.Navigate(new Communaute(((Grid)sender).Name));
         }
     }
 }

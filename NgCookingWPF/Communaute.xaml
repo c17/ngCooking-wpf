@@ -19,7 +19,7 @@
             <ColumnDefinition Width="541*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2">~ La Communauté</TextBlock>
+        <TextBlock Name="Title" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2"></TextBlock>
         <!--See if i can add tempalte later-->
         <Grid Grid.Column="0" Grid.Row="1" Name="NavGrid">
             <!-- SECOND GRID LEFT COLUMN-->

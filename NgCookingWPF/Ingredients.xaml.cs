@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
@@ -12,24 +11,12 @@ namespace NGCookingWPF
     /// </summary>
     public partial class Ingredients : Page
     {
-        // DEBUG
-        //public class Ingredient
-        //{
-        //    public string Name { get; set; }
-        //    public string Category { get; set; }
-        //    public string ImgPath { get; set; }
-        //    public string Calories { get; set; }
-        //    public List<string> SimiIng { get; set; }
+        public string NameToLookUp = "";
+        public string CategoryToLookUp = "";
+        public int CalMinToLookUp = 0;
+        public int CalMaxToLookUp = 0;
 
-        //    public Ingredient(string name, string cat, string img, int cal)
-        //    {
-        //        Name = name;
-        //        Category = cat;
-        //        ImgPath = img;
-        //        Calories = cal.ToString() + " kcal";
-        //        SimiIng = new List<string>();
-        //    }
-        //}
+        List<apis.Client.Models.Ingredient> allIng; // Contains ALL ingredients
 
         public Ingredients()
         {
@@ -38,6 +25,7 @@ namespace NGCookingWPF
             apis.Client.ApiClient _apiClient = _apiClient = new apis.Client.ApiClient("http://localhost:5000/api");
             List<apis.Client.Models.Ingredient> src = _apiClient.Get<List<apis.Client.Models.Ingredient>>("ingredients").Result;
             src = src.OrderBy(o => o.Name).ToList();
+            allIng = src; // Reference for the sort fct
 
             foreach (var item in src)
             {
@@ -62,19 +50,79 @@ namespace NGCookingWPF
                 }
             }
 
-            NameFilter.LostFocus += TargetUpdatedHandler;
-            CategoryFilter.LostFocus += TargetUpdatedHandler;
-            CaloriesMin.LostFocus += TargetUpdatedHandler;
-            CaloriesMax.LostFocus += TargetUpdatedHandler;
+            NameFilter.TextChanged += NameTextChangedHandler;
+            CategoryFilter.TextChanged += CategoryTextChangedHandler;
+            CaloriesMin.TextChanged += CaloriesMinTextChangedHandler;
+            CaloriesMax.TextChanged += CaloriesMaxTextChangedHandler;
 
             Content.ItemsSource = src;
         }
-
-        private void TargetUpdatedHandler(object sender, RoutedEventArgs e)
+        private void NameTextChangedHandler(object sender, TextChangedEventArgs e)
         {
-            // DEBUG
-            //MessageBox.Show("Modification de " + sender);
+            NameToLookUp = NameFilter.Text;
+            IngredientSort();
         }
+
+        private void CategoryTextChangedHandler(object sender, TextChangedEventArgs e)
+        {
+            CategoryToLookUp = CategoryFilter.Text;
+            IngredientSort();
+        }
+
+        private void CaloriesMinTextChangedHandler(object sender, TextChangedEventArgs e)
+        {
+            // TODO : Add more security
+            if (CaloriesMin.Text != "")
+            {
+                CalMinToLookUp = Convert.ToInt32(CaloriesMin.Text);
+                IngredientSort();
+            }
+        }
+
+        private void CaloriesMaxTextChangedHandler(object sender, TextChangedEventArgs e)
+        {
+            // TODO : Add more security
+            if (CaloriesMax.Text != "")
+            {
+                CalMinToLookUp = Convert.ToInt32(CaloriesMax.Text);
+                IngredientSort();
+            }
+        }
+
+        private void IngredientSort()
+        {
+            var src = new List<apis.Client.Models.Ingredient>();
+
+            foreach (var item in allIng)
+            {
+                if (NameToLookUp != null)
+                {
+                    if (item.Name.ToLower().Contains(NameToLookUp.ToLower()))
+                    {
+                        src.Add(item);
+                    }
+                }
+
+                //if (CategoryToLookUp != null)
+                //{
+                //    if (item.CategoryId.ToLower().Contains(CategoryToLookUp.ToLower()))
+                //    {
+                //        src.Add(item);
+                //    }
+                //}
+
+                //if (CalMinToLookUp >= 0 && CalMaxToLookUp >= 0 && CalMinToLookUp < CalMaxToLookUp)
+                //{
+                //    if (CalMinToLookUp <= item.Calories && item.Calories <= CalMaxToLookUp)
+                //    {
+                //        src.Add(item);
+                //    }
+                //}
+            }
+            Content.ItemsSource = src;
+        }
+
+
 
         #region UIElements
         private void NameFilter_TextChanged(object sender, TextChangedEventArgs e)
