@@ -5,3 +5,12 @@ C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\Api.Client\bin\Debug\Newto
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\Api.Client\obj\Debug\Api.Client.dll
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\Api.Client\obj\Debug\Api.Client.pdb
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\Api.Client\obj\Debug\Api.Client.csprojResolveAssemblyReference.cache
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\Api.Client\bin\Debug\Carbon.Json.dll
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\Api.Client\bin\Debug\Carbon.Packaging.dll
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\Api.Client\bin\Debug\Carbon.Protection.dll
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\Api.Client\bin\Debug\Carbon.Repositories.dll
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\Api.Client\bin\Debug\Carbon.Storage.dll
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\Api.Client\bin\Debug\Carbon.Versioning.dll
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\Api.Client\bin\Debug\GitHub.dll
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\Api.Client\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\Api.Client\bin\Debug\System.Text.Encodings.Web.xml

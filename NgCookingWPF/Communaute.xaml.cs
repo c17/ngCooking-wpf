@@ -7,17 +7,17 @@ using System.Windows.Media.Imaging;
 namespace NgCookingWPF
 {
     /// <summary>
-    /// Logique d'interaction pour Home.xaml
+    /// Logique d'interaction pour Communaute.xaml
     /// </summary>
-    public partial class Home : Page
+    public partial class Communaute : Page
     {
-        public Home()
+        public Communaute()
         {
             InitializeComponent();
             apis.Client.ApiClient _apiClient = _apiClient = new apis.Client.ApiClient("http://localhost:5000/api");
 
-            List<apis.Client.Models.Recette> src = _apiClient.Get<List<apis.Client.Models.Recette>>("recettes").Result;
-            src = src.OrderBy(o => o.Name).ToList();
+            List<apis.Client.Models.User> src = _apiClient.Get<List<apis.Client.Models.User>>("community").Result;
+            src = src.OrderBy(o => o.FirstName).ToList();
             foreach (var item in src)
             {
                 String url = String.Format("{0}/{1}", "http://localhost:5000/", item.Picture);
@@ -27,8 +27,7 @@ namespace NgCookingWPF
                 bitmapImage.EndInit();
                 item.Img = bitmapImage;
             }
-            BestRecipes.ItemsSource = src;
-            NewRecipes.ItemsSource = src;
+            Users.ItemsSource = src;
         }
     }
 }

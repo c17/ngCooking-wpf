@@ -36,7 +36,6 @@ C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\New
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\System.Net.Http.dll
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\System.Diagnostics.DiagnosticSource.dll
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\System.Diagnostics.DiagnosticSource.xml
-C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\NgCookingWPF.csproj.NgCookingWPF.exe.config
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\Api.Client.dll
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\Api.Client.pdb
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\System.Security.Cryptography.Algorithms.dll
@@ -44,3 +43,9 @@ C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\Sys
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\System.Security.Cryptography.Primitives.dll
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\System.Security.Cryptography.X509Certificates.dll
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\Microsoft.Win32.Primitives.dll
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\Ingredients.g.cs
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\Recettes.g.cs
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\Ingredients.baml
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\Recettes.baml
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\Communaute.g.cs
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\Communaute.baml
