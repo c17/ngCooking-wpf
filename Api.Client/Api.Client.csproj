@@ -31,13 +31,48 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Carbon.Json, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Carbon.Json.1.2.0\lib\net461\Carbon.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Carbon.Packaging, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Carbon.Packaging.1.3.0\lib\net461\Carbon.Packaging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Carbon.Protection, Version=1.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Carbon.Protection.1.3.3\lib\net451\Carbon.Protection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Carbon.Repositories, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Carbon.Repositories.1.2.0\lib\net451\Carbon.Repositories.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Carbon.Storage, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Carbon.Storage.1.2.0\lib\net451\Carbon.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Carbon.Versioning, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Carbon.Versioning.1.2.0\lib\net451\Carbon.Versioning.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GitHub, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GitHub.1.0.0\lib\net461\GitHub.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.3.0\lib\netstandard1.0\System.Text.Encodings.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
