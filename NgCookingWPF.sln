@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NgCookingWPF", "NgCookingWPF\NgCookingWPF.csproj", "{52D11F62-E51C-484F-B051-45D273E587D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Client", "Api.Client\Api.Client.csproj", "{86C836C3-2526-466A-816C-239495927FD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{52D11F62-E51C-484F-B051-45D273E587D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52D11F62-E51C-484F-B051-45D273E587D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52D11F62-E51C-484F-B051-45D273E587D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86C836C3-2526-466A-816C-239495927FD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86C836C3-2526-466A-816C-239495927FD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86C836C3-2526-466A-816C-239495927FD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86C836C3-2526-466A-816C-239495927FD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

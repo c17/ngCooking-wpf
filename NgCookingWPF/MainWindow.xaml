@@ -113,7 +113,7 @@
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Text="{Binding Name}"></TextBlock>
-                                <Image Grid.Row="1" Source="{Binding Image}"></Image>
+                                <Image Grid.Row="1" Source="{Binding Img}"></Image>
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
@@ -141,7 +141,7 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Text="{Binding Name}"></TextBlock>
-                            <Image Grid.Row="1" Source="{Binding Image}"></Image>
+                            <Image Grid.Row="1" Source="{Binding Img}"></Image>
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
