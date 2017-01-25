@@ -44,5 +44,3 @@ C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\Sys
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\System.Security.Cryptography.Primitives.dll
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\System.Security.Cryptography.X509Certificates.dll
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\bin\Debug\Microsoft.Win32.Primitives.dll
-C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\Communaute.g.cs
-C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\Communaute.baml
