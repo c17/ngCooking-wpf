@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:NgCookingWPF"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="MainWindow" Height="720" Width="1280" Background="White">
+      Title="Communaute" Height="720" Width="1280" Background="White">
 
 
     <Grid Name="wrapper" Width="1280" Height="720" HorizontalAlignment="Center">
@@ -18,8 +18,6 @@
             <ColumnDefinition Width="99*"></ColumnDefinition>
             <ColumnDefinition Width="541*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
-        <TextBlock Name="Title" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2"></TextBlock>
         <!--See if i can add tempalte later-->
         <Grid Grid.Column="0" Grid.Row="1" Name="NavGrid">
             <!-- SECOND GRID LEFT COLUMN-->
@@ -42,10 +40,10 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Acceuil</TextBlock>
-                <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Recettes</TextBlock>
-                <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Ingrédients</TextBlock>
-                <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Communauté</TextBlock>
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Accueil.xaml">Accueil</Hyperlink></TextBlock>
+                <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Recettes.xaml">Recettes</Hyperlink></TextBlock>
+                <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Ingredients.xaml">Ingrédients</Hyperlink></TextBlock>
+                <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Communaute.xaml">Communauté</Hyperlink></TextBlock>
             </Grid>
             <!-- THIRD GRID FIRST ROW-->
 
