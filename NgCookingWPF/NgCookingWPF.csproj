@@ -285,9 +285,9 @@
     <Resource Include="img\users\thomas_small.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Api.Client\Api.Client.csproj">
-      <Project>{86c836c3-2526-466a-816c-239495927fd5}</Project>
-      <Name>Api.Client</Name>
+    <ProjectReference Include="..\..\ngCooking-wpf-api\src\apis.client\apis.client.csproj">
+      <Project>{24ad71d5-8971-4782-b1f9-c182054e01ed}</Project>
+      <Name>apis.client</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

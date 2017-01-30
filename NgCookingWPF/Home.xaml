@@ -18,7 +18,15 @@
             <ColumnDefinition Width="43*"></ColumnDefinition>
             <ColumnDefinition Width="117*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
+        <Popup Placement="Center" Margin="400 120 0 0" IsOpen="False" Name="Form">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Background="WhiteSmoke" Width="270">
+                <TextBlock>Username :</TextBlock>
+                <TextBox  Name="UserName"></TextBox>
+                <TextBlock>Password :</TextBlock>
+                <PasswordBox PasswordChar="*"  Name="Password"></PasswordBox>
+                <Button Name="ValidateButton">Validate</Button>
+            </StackPanel>
+        </Popup>
         <Grid Grid.Column="0" Grid.Row="1" Name="NavGrid">
             <!-- SECOND GRID LEFT COLUMN-->
             <Grid.RowDefinitions>
@@ -40,7 +48,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Accueil.xaml">Accueil</Hyperlink></TextBlock>
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Home.xaml">Accueil</Hyperlink></TextBlock>
                 <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Recettes.xaml">Recettes</Hyperlink></TextBlock>
                 <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Ingredients.xaml">Ingrédients</Hyperlink></TextBlock>
                 <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Communaute.xaml">Communauté</Hyperlink></TextBlock>
@@ -57,9 +65,9 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">Connexion</Button>
-                <Button Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">Deconnexion</Button>
-                <Button Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">Profil</Button>
+                <Button Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Name="ConnexionButton">Connexion</Button>
+                <Button Visibility="Hidden" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Name="DeconnexionButton">Deconnexion</Button>
+                <Button Visibility="Hidden" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Name="ProfileButton">Profil</Button>
             </Grid>
             <!-- THIRD GRID SECOND ROW-->
         </Grid>

@@ -22,7 +22,7 @@ namespace NgCookingWPF
             src = src.OrderBy(o => o.FirstName).ToList();
             foreach (var item in src)
             {
-                String url = String.Format("{0}/{1}", "http://localhost:5000/", item.Picture);
+                String url = String.Format("{0}/{1}", "http://localhost:5000", item.Picture);
                 var bitmapImage = new BitmapImage();
                 bitmapImage.BeginInit();
                 bitmapImage.UriSource = new Uri(url); ;
@@ -44,7 +44,7 @@ namespace NgCookingWPF
             src = src.OrderBy(o => o.FirstName).ToList();
             foreach (var item in src)
             {
-                String url = String.Format("{0}/{1}", "http://localhost:5000/", item.Picture);
+                String url = String.Format("{0}/{1}", "http://localhost:5000", item.Picture);
                 var bitmapImage = new BitmapImage();
                 bitmapImage.BeginInit();
                 bitmapImage.UriSource = new Uri(url); ;
