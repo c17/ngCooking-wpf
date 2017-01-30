@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 
 namespace NgCookingWPF
 {
@@ -51,6 +52,13 @@ namespace NgCookingWPF
                 item.Img = bitmapImage;
             }
             Users.ItemsSource = src;
+        }
+        private void CommunauteGrid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+
+            string url = String.Format("{0}{1}", "Communaute.xaml?parameter=", e.Source.ToString());
+            NavigationService navService = NavigationService.GetNavigationService(this);
+            navService.Navigate(new UserProfile(((Grid)sender).Uid));
         }
     }
 }

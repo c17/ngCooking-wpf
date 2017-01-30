@@ -1,4 +1,4 @@
-﻿<Page x:Class="NgCookingWPF.Communaute"
+﻿<Page x:Class="NgCookingWPF.UserProfile"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,19 +6,18 @@
       xmlns:local="clr-namespace:NgCookingWPF"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="Communaute" Height="720" Width="1280" Background="White">
-
-
+      Title="UserProfile" Width="1280" Height="720" Background="White">
     <Grid Name="wrapper" Width="1280" Height="720" HorizontalAlignment="Center">
+        <!--MAIN GRID-->
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="47*"></RowDefinition>
-            <RowDefinition Height="673*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="23*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="99*"></ColumnDefinition>
-            <ColumnDefinition Width="541*"></ColumnDefinition>
+            <ColumnDefinition Width="43*"></ColumnDefinition>
+            <ColumnDefinition Width="117*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <!--See if i can add tempalte later-->
         <Grid Grid.Column="0" Grid.Row="1" Name="NavGrid">
             <!-- SECOND GRID LEFT COLUMN-->
             <Grid.RowDefinitions>
@@ -63,46 +62,35 @@
             </Grid>
             <!-- THIRD GRID SECOND ROW-->
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="1">
+        <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="52*"></RowDefinition>
-                <RowDefinition Height="52*"></RowDefinition>
-                <RowDefinition Height="560*"></RowDefinition>
-                <RowDefinition Height="61*"></RowDefinition>
+                <RowDefinition Height="161*"></RowDefinition>
+                <RowDefinition Height="44*"></RowDefinition>
+                <RowDefinition Height="140*"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBlock FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0">~ Les meilleures cuistots ~</TextBlock>
-            <Menu Grid.Row="1" Name="TriMenu">
 
-                <MenuItem Header="Child1 SubItem" IsCheckable="true"/>
-            </Menu>
-            <Grid Grid.Row="2">
-                <ItemsControl Grid.Row="3" Name="Users">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Margin="50 0 0 0 " Uid="{Binding Id}" MouseDown="CommunauteGrid_MouseDown">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                    <RowDefinition Height="30"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Text="{Binding FirstName}"></TextBlock>
-                                <Image Grid.Row="0" Width="130" Height="160" Source="{Binding Img}"></Image>
-                            </Grid>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="161*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="61*"></ColumnDefinition>
+                    <ColumnDefinition Width="95*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Name="ProfileImg"></Image>
+                <Grid Grid.Column="1">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" FontSize="18" Name="Name" Margin="10 10 10 10">SASA</TextBlock>
+                        <TextBlock Name="Level" Margin="10 0 10 10"> SASA</TextBlock>
+                        <TextBlock Name="City" Margin="10 0 10 10">SASASA</TextBlock>
+                        <TextBlock Name="Age" Margin="10 0 10 10">SASASA</TextBlock>
+                        <TextBlock Name="Bio" Margin="10 0 10 10">SASASA</TextBlock>
+                    </StackPanel>
+                </Grid>
             </Grid>
         </Grid>
-        <!-- SECOND GRID LEFT COLUMN-->
     </Grid>
 </Page>

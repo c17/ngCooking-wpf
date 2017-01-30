@@ -49,3 +49,5 @@ C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\Ing
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\Recettes.baml
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\Communaute.g.cs
 C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\Communaute.baml
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\UserProfile.g.cs
+C:\Users\C17 Developer\Documents\GitHub\ngCooking-wpf\NgCookingWPF\obj\Debug\UserProfile.baml
