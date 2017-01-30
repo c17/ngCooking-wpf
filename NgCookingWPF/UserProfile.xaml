@@ -83,14 +83,39 @@
                 <Image Grid.Column="0" Name="ProfileImg"></Image>
                 <Grid Grid.Column="1">
                     <StackPanel>
-                        <TextBlock FontWeight="Bold" FontSize="18" Name="Name" Margin="10 10 10 10">SASA</TextBlock>
-                        <TextBlock Name="Level" Margin="10 0 10 10"> SASA</TextBlock>
-                        <TextBlock Name="City" Margin="10 0 10 10">SASASA</TextBlock>
-                        <TextBlock Name="Age" Margin="10 0 10 10">SASASA</TextBlock>
-                        <TextBlock Name="Bio" Margin="10 0 10 10">SASASA</TextBlock>
+                        <TextBlock FontWeight="Bold" FontSize="18" Name="Name" Margin="10 10 10 10"></TextBlock>
+                        <TextBlock Name="Level" Margin="10 0 10 10"> </TextBlock>
+                        <TextBlock Name="City" Margin="10 0 10 10"></TextBlock>
+                        <TextBlock Name="Age" Margin="10 0 10 10"></TextBlock>
+                        <TextBlock Name="Bio" Margin="10 0 10 10"></TextBlock>
                     </StackPanel>
                 </Grid>
             </Grid>
+            <Image Margin="0 10 0 10" Grid.Row="1" Stretch="Fill" Source="pack://application:,,,/img/fruitland-background.jpg"></Image>
+            <Button Grid.Row="1" Width="100" Height="50">Nouvelle Recette</Button>
+            
+            <ItemsControl Grid.Row="3" Name="UserRecipes">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="50 0 0 0 " Tag="RecetteGrid" Name="RecetteGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Text="{Binding Name}"></TextBlock>
+                            <Image Grid.Row="1" Source="{Binding Img}"></Image>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
     </Grid>
 </Page>

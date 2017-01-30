@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:NGCookingWPF"
       mc:Ignorable="d" 
       Width="1280" Height="720" 
-      Title="Ingredients">
+      Title="Ingredients" Background="White">
 
 
     <Grid Name="wrapper" Width="1280" Height="720" HorizontalAlignment="Center">
