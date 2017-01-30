@@ -8,109 +8,168 @@
       Width="1280" Height="720" 
       Title="Ingredients">
 
-    <Grid Background="White" Width="1280" Height="720" >
+
+    <Grid Name="wrapper" Width="1280" Height="720" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="7*"/>
-            <RowDefinition Height="16*"/>
+            <RowDefinition Height="47*"></RowDefinition>
+            <RowDefinition Height="673*"></RowDefinition>
         </Grid.RowDefinitions>
-
-        <!-- Title -->
-        <TextBlock x:Name="Title" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                   TextWrapping="Wrap" Text="Ingredients" TextAlignment="Center" 
-                   Margin="0,0,10,0" Height="80" Width="1262" FontStyle="Italic"/>
-
-        <!-- Form -->
-        <Grid HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="1280" Background="LightGray" Height="186">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="99*"></ColumnDefinition>
+            <ColumnDefinition Width="541*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--See if i can add tempalte later-->
+        <Grid Grid.Column="0" Grid.Row="1" Name="NavGrid">
+            <!-- SECOND GRID LEFT COLUMN-->
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="Name_textBlock" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Center" Grid.Row="0" TextWrapping="Wrap" Text="Nom de l'ingrédient :" FontSize="30" Margin="10,10,5,5"/>
-            <TextBlock x:Name="Cate_textBlock" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="Catégorie :"           FontSize="30" Margin="10,10,5,5"/>
-            <TextBlock x:Name="Calo_textBlock" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="Calories :"            FontSize="30" Margin="10,10,5,5"/>
-            <Grid Grid.Column="1" Height="65" Grid.Row="2" VerticalAlignment="Top">
+
+            <!-- THIRD GRID FIRST ROW-->
+            <Grid Grid.Column="0" Grid.Row="0" Name="Redirctions" >
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="20*"/>
-                    <ColumnDefinition Width="6*"/>
-                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox   x:Name="CaloriesMin" Grid.Column="0" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" VerticalAlignment="Top" Width="385" FontSize="30" Margin="10,10,0,0" TextChanged="CaloriesMin_TextChanged"/>
-                <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Text="Et" FontSize="30" Height="60"  Margin="10,8,10,-3" Grid.Column="1" Width="101"/>
-                <TextBox   x:Name="CaloriesMax" Grid.Column="2" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Width="365" VerticalAlignment="Top" FontSize="30" Margin="10,10,0,0" TextChanged="CaloriesMax_TextChanged"/>
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Accueil.xaml">Accueil</Hyperlink></TextBlock>
+                <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Recettes.xaml">Recettes</Hyperlink></TextBlock>
+                <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Ingredients.xaml">Ingrédients</Hyperlink></TextBlock>
+                <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Communaute.xaml">Communauté</Hyperlink></TextBlock>
             </Grid>
-            <TextBox x:Name="NameFilter"     Grid.Column="1" HorizontalAlignment="Left" Height="50" Width="890" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30" Margin="10,10,0,0" Grid.RowSpan="2" TextChanged="NameFilter_TextChanged"/>
-            <TextBox x:Name="CategoryFilter" Grid.Column="1" HorizontalAlignment="Left" Height="50" Width="890" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30" Margin="10,10,0,0" Grid.RowSpan="2" TextChanged="CategoryFilter_TextChanged"/>
+            <!-- THIRD GRID FIRST ROW-->
+
+            <!-- THIRD GRID SECOND ROW-->
+            <Grid Grid.Column="0" Grid.Row="1" Name="ConnexionForm" >
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">Connexion</Button>
+                <Button Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">Deconnexion</Button>
+                <Button Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">Profil</Button>
+            </Grid>
+            <!-- THIRD GRID SECOND ROW-->
+            <!-- SECOND GRID LEFT COLUMN-->
         </Grid>
 
-        <!-- Ingredient Display -->
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2">
-            <ItemsControl Name="Content">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Vertical"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderBrush="Gray" BorderThickness="2" Padding="1" Grid.Row="3" Margin="0,2,0,0">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="3*"/>
-                                    <ColumnDefinition Width="8*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid Grid.Column="1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Grid>
+        <Grid Background="White" Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="16*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <TextBlock x:Name="Title" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   TextWrapping="Wrap" Text="Ingredients" TextAlignment="Center" 
+                   Margin="10" Height="80" Width="1062" FontStyle="Italic"/>
+
+            <!-- Form -->
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="1072" Background="LightGray" Height="174" Margin="0,95,0,0" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="8*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="Name_textBlock" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Center" Grid.Row="0" TextWrapping="Wrap" Text="Nom de l'ingrédient :" FontSize="28" Margin="10,10,5,5"/>
+                <TextBlock x:Name="Cate_textBlock" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="Catégorie :"           FontSize="28" Margin="10,10,5,5"/>
+                <TextBlock x:Name="Calo_textBlock" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="Calories :"            FontSize="28" Margin="10,10,5,5"/>
+                <Grid Grid.Column="1" Height="65" Grid.Row="2" VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox   x:Name="CaloriesMin" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" FontSize="28" Margin="10,10,0,0" TextChanged="CaloriesMin_TextChanged"/>
+                    <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Text="Et" FontSize="28" Height="60"  Margin="10,8,10,-3" Grid.Column="1" Width="101"/>
+                    <TextBox   x:Name="CaloriesMax" Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap" Width="319" VerticalAlignment="Top" FontSize="28" Margin="10,10,0,0" TextChanged="CaloriesMax_TextChanged"/>
+                </Grid>
+                <TextBox x:Name="NameFilter"     Grid.Column="1" HorizontalAlignment="Left" Width="760" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" Margin="10,10,0,0" TextChanged="NameFilter_TextChanged"/>
+                <TextBox x:Name="CategoryFilter" Grid.Column="1" HorizontalAlignment="Left" Width="760" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" Margin="10,10,0,0" TextChanged="CategoryFilter_TextChanged"/>
+            </Grid>
+
+            <!-- Ingredient Display -->
+            <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Row="2">
+                <ItemsControl Name="Content">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="Gray" BorderThickness="2" Padding="1" Grid.Row="3" Margin="0,2,0,0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="8*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="1">
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="1*"/>
-                                            <RowDefinition Height="7*"/>
+                                            <RowDefinition/>
+                                            <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="2*"/>
-                                            <ColumnDefinition Width="5*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBlock x:Name="NameTxtBlock"     Text="{Binding Name}"       HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="30"/>
-                                        <TextBlock x:Name="CategoryTxtBlock" Text="{Binding CategoryId}" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
-                                        <TextBlock x:Name="CaloriesTxtBlock" Text="{Binding Calories}"   HorizontalAlignment="Left" Margin="124,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Grid.Row="1"/>
-                                        <TextBlock x:Name="SimiIngTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Ingredients Similaires :" VerticalAlignment="Top" FontSize="25"/>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="1*"/>
+                                                <RowDefinition Height="7*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="5*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock x:Name="NameTxtBlock"     Text="{Binding Name}"       HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25"/>
+                                            <TextBlock x:Name="CategoryTxtBlock" Text="{Binding CategoryId}" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25" Grid.Row="1"/>
+                                            <TextBlock x:Name="CaloriesTxtBlock" Text="{Binding Calories}"   HorizontalAlignment="Left" Margin="124,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25" Grid.Row="1"/>
+                                            <TextBlock x:Name="SimiIngTxt" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Ingredients Similaires :" VerticalAlignment="Top" FontSize="25"/>
 
-                                        <!--Similar Ingredients-->
-                                        <ItemsControl Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SimiIng}">
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <StackPanel Orientation="Horizontal" />
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <Grid Grid.Column="1" Grid.Row="1">
-                                                        <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="Auto"/>
-                                                            <ColumnDefinition Width="Auto"/>
-                                                        </Grid.ColumnDefinitions>
-                                                        <Image Width="60" Height="60" Source="{Binding}"/>
-                                                    </Grid>
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                        </ItemsControl>
+                                            <!--Similar Ingredients-->
+                                            <ItemsControl Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SimiIng}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <StackPanel Orientation="Horizontal" />
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid Grid.Column="1" Grid.Row="1">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Image Width="60" Height="60" Source="{Binding}"/>
+                                                        </Grid>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
 
+                                        </Grid>
                                     </Grid>
+                                    <Image x:Name="image" Margin="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Top" Height="120" Width="120" Source="{Binding Img}"/>
                                 </Grid>
-                                <Image x:Name="image" Margin="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Top" Height="120" Width="120" Source="{Binding Img}"/>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
     </Grid>
+
 </Page>
