@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -13,7 +14,6 @@ namespace NgCookingWPF
     /// </summary>
     public partial class Home : Page
     {
-
         apis.Client.ApiClient _apiClient;
         apis.Client.Models.User _connectUser;
         public Home()
@@ -41,7 +41,18 @@ namespace NgCookingWPF
             DeconnexionButton.Click += deconnexionClick;
             ProfileButton.Click += profileConnexion;
         }
-
+        private void validateClick(object sender, RoutedEventArgs e)
+        {
+            List<apis.Client.Models.User> users = _apiClient.Get<List<apis.Client.Models.User>>("community").Result;
+            HttpResponseMessage res = _apiClient.Post<LogginUser>("Authenticate", new LogginUser { email = UserName.Text, password = Password.Password }).Result;
+            if (res.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                DeconnexionButton.Visibility = Visibility.Visible;
+                ProfileButton.Visibility = Visibility.Visible;
+                ConnexionButton.Visibility = Visibility.Hidden;
+            }
+            Form.IsOpen = false;
+        }
         private void profileConnexion(object sender, RoutedEventArgs e)
         {
             NavigationService navService = NavigationService.GetNavigationService(this);
@@ -64,22 +75,6 @@ namespace NgCookingWPF
         {
             Form.IsOpen = true;
         }
-        private void validateClick(object sender, RoutedEventArgs e)
-        {
-            List<apis.Client.Models.User> users = _apiClient.Get<List<apis.Client.Models.User>>("community").Result;
-            foreach (var item in users)
-            {
-                // remplacer par la connexion de l'api
-                if (item.FirstName == UserName.Text && Password.Password == "c17")
-                {
-                    _connectUser = item;
-                    DeconnexionButton.Visibility = Visibility.Visible;
-                    ProfileButton.Visibility = Visibility.Visible;
-                    ConnexionButton.Visibility = Visibility.Hidden;
-                }
 
-            }
-            Form.IsOpen = false;
-        }
     }
 }
