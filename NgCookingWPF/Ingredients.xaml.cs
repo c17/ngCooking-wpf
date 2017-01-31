@@ -29,13 +29,12 @@ namespace NGCookingWPF
 
             foreach (var item in src)
             {
-                String url = String.Format("{0}/img/ingredients/{1}", "http://localhost:5000/", item.Picture);
+                String url = String.Format("{0}/img/ingredients/{1}", "http://localhost:5000", item.Picture);
                 var bitmapImage = new BitmapImage();
                 bitmapImage.BeginInit();
                 bitmapImage.UriSource = new Uri(url); ;
                 bitmapImage.EndInit();
                 item.Img = bitmapImage;
-
             }
 
             foreach (var item in src)
@@ -57,6 +56,7 @@ namespace NGCookingWPF
 
             Content.ItemsSource = src;
         }
+
         private void NameTextChangedHandler(object sender, TextChangedEventArgs e)
         {
             NameToLookUp = NameFilter.Text;
@@ -71,58 +71,74 @@ namespace NGCookingWPF
 
         private void CaloriesMinTextChangedHandler(object sender, TextChangedEventArgs e)
         {
-            // TODO : Add more security
-            if (CaloriesMin.Text != "")
+            string strToEvaluate = CaloriesMin.Text;
+            if (strToEvaluate != "" && strToEvaluate.Length < 5)
             {
-                CalMinToLookUp = Convert.ToInt32(CaloriesMin.Text);
-                IngredientSort();
+                bool isNumeric = int.TryParse(strToEvaluate, out CalMinToLookUp);
+                if (isNumeric && CalMinToLookUp > 0)
+                {
+                    IngredientSort();
+                }
             }
         }
 
         private void CaloriesMaxTextChangedHandler(object sender, TextChangedEventArgs e)
         {
-            // TODO : Add more security
-            if (CaloriesMax.Text != "")
+            string strToEvaluate = CaloriesMax.Text;
+            if (strToEvaluate != "" && strToEvaluate.Length < 5)
             {
-                CalMinToLookUp = Convert.ToInt32(CaloriesMax.Text);
-                IngredientSort();
+                bool isNumeric = int.TryParse(strToEvaluate, out CalMaxToLookUp);
+                if (isNumeric && CalMaxToLookUp > 0)
+                {
+                    IngredientSort();
+                }
             }
         }
 
         private void IngredientSort()
         {
             var src = new List<apis.Client.Models.Ingredient>();
+            bool flag;
 
             foreach (var item in allIng)
             {
+                flag = true;
+
                 if (NameToLookUp != null)
                 {
+                    flag = false;
                     if (item.Name.ToLower().Contains(NameToLookUp.ToLower()))
                     {
-                        src.Add(item);
+                        flag = true;
                     }
                 }
 
-                //if (CategoryToLookUp != null)
-                //{
-                //    if (item.CategoryId.ToLower().Contains(CategoryToLookUp.ToLower()))
-                //    {
-                //        src.Add(item);
-                //    }
-                //}
+                if (flag && CategoryToLookUp != null)
+                {
+                    flag = false;
+                    if (item.CategoryId.ToLower().Contains(CategoryToLookUp.ToLower()))
+                    {
+                        flag = true;
+                    }
+                }
 
-                //if (CalMinToLookUp >= 0 && CalMaxToLookUp >= 0 && CalMinToLookUp < CalMaxToLookUp)
-                //{
-                //    if (CalMinToLookUp <= item.Calories && item.Calories <= CalMaxToLookUp)
-                //    {
-                //        src.Add(item);
-                //    }
-                //}
+                if (flag && CalMinToLookUp >= 0 && CalMaxToLookUp >= 0 && CalMinToLookUp < CalMaxToLookUp)
+                {
+                    flag = false;
+                    if (CalMinToLookUp <= item.Calories && item.Calories <= CalMaxToLookUp)
+                    {
+                        flag = true;
+                    }
+                }
+
+                if (flag)
+                {
+                    src.Add(item);
+                }
             }
+
             Content.ItemsSource = src;
         }
-
-
 
         #region UIElements
         private void NameFilter_TextChanged(object sender, TextChangedEventArgs e)

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:NGCookingWPF"
       mc:Ignorable="d" 
       Width="1280" Height="720" 
-      Title="Ingredients" Background="White">
+      Title="Ingredients">
 
 
     <Grid Name="wrapper" Width="1280" Height="720" HorizontalAlignment="Center">
@@ -40,7 +40,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Home.xaml">Accueil</Hyperlink></TextBlock>
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Accueil.xaml">Accueil</Hyperlink></TextBlock>
                 <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Recettes.xaml">Recettes</Hyperlink></TextBlock>
                 <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Ingredients.xaml">Ingrédients</Hyperlink></TextBlock>
                 <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"><Hyperlink NavigateUri="Communaute.xaml">Communauté</Hyperlink></TextBlock>
@@ -78,7 +78,7 @@
                    Margin="10" Height="80" Width="1062" FontStyle="Italic"/>
 
             <!-- Form -->
-            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="1072" Background="LightGray" Height="174" Margin="0,95,0,0" Grid.RowSpan="2">
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="1082" Background="LightGray" Height="174" Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
@@ -171,5 +171,4 @@
             </ScrollViewer>
         </Grid>
     </Grid>
-
 </Page>
