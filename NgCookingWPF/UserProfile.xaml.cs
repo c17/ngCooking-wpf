@@ -14,20 +14,18 @@ namespace NgCookingWPF
         string[] levels = { "Novice", "Intermediaire", "Expert" };
         private string _Id;
         private apis.Client.Models.User _user;
+        private Authentificator _auth = Authentificator.Instance;
         private apis.Client.ApiClient _apiClient = new apis.Client.ApiClient("http://localhost:5000/api");
         public UserProfile()
         {
             InitializeComponent();
+            apis.Client.Models.User user = _apiClient.Get<apis.Client.Models.User>("Authenticate", _auth.Cookie).Result;
+            _user = user;
         }
         public UserProfile(string Id)
         {
             _Id = Id;
             _user = _apiClient.Get<apis.Client.Models.User>(String.Format("{0}{1}", "community/", Id)).Result;
-            init();
-        }
-        public UserProfile(apis.Client.Models.User user)
-        {
-            _user = user;
             init();
         }
 

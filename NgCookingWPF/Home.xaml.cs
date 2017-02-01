@@ -14,11 +14,13 @@ namespace NgCookingWPF
     /// </summary>
     public partial class Home : Page
     {
-        apis.Client.ApiClient _apiClient;
-        apis.Client.Models.User _connectUser;
+
+        private apis.Client.ApiClient _apiClient;
+        private Authentificator _auth;
         public Home()
         {
             InitializeComponent();
+            _auth = Authentificator.Instance;
             _apiClient = _apiClient = new apis.Client.ApiClient("http://localhost:5000/api");
             List<apis.Client.Models.Recette> src = _apiClient.Get<List<apis.Client.Models.Recette>>("recettes").Result;
 
@@ -45,6 +47,7 @@ namespace NgCookingWPF
         {
             List<apis.Client.Models.User> users = _apiClient.Get<List<apis.Client.Models.User>>("community").Result;
             HttpResponseMessage res = _apiClient.Post<LogginUser>("Authenticate", new LogginUser { email = UserName.Text, password = Password.Password }).Result;
+            _auth.setCookie(((string[])(res.Headers.ElementAt(4)).Value)[0]);
             if (res.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 DeconnexionButton.Visibility = Visibility.Visible;
@@ -56,12 +59,12 @@ namespace NgCookingWPF
         private void profileConnexion(object sender, RoutedEventArgs e)
         {
             NavigationService navService = NavigationService.GetNavigationService(this);
-            navService.Navigate(new UserProfile(_connectUser));
+            navService.Navigate(new UserProfile());
         }
 
         private void deconnexionClick(object sender, RoutedEventArgs e)
         {
-            _connectUser = null;
+            _auth.Cookie = new Dictionary<string, string>();
             DeconnexionButton.Visibility = Visibility.Hidden;
             ProfileButton.Visibility = Visibility.Hidden;
             ConnexionButton.Visibility = Visibility.Visible;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 
@@ -16,7 +17,7 @@ namespace NgCookingWPF
         public Communaute()
         {
             InitializeComponent();
-            apis.Client.ApiClient _apiClient = _apiClient = new apis.Client.ApiClient("http://localhost:5000/api");
+            apis.Client.ApiClient _apiClient = new apis.Client.ApiClient("http://localhost:5000/api");
 
             List<apis.Client.Models.User> src = _apiClient.Get<List<apis.Client.Models.User>>("community").Result;
             src = src.OrderBy(o => o.FirstName).ToList();
@@ -38,7 +39,7 @@ namespace NgCookingWPF
         {
             InitializeComponent();
             _param = param;
-            apis.Client.ApiClient _apiClient = _apiClient = new apis.Client.ApiClient("http://localhost:5000/api");
+            apis.Client.ApiClient _apiClient = new apis.Client.ApiClient("http://localhost:5000/api");
 
             List<apis.Client.Models.User> src = _apiClient.Get<List<apis.Client.Models.User>>("community").Result;
             src = src.OrderBy(o => o.FirstName).ToList();
@@ -53,10 +54,8 @@ namespace NgCookingWPF
             }
             Users.ItemsSource = src;
         }
-        private void CommunauteGrid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void CommunauteGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
-            string url = String.Format("{0}{1}", "Communaute.xaml?parameter=", e.Source.ToString());
             NavigationService navService = NavigationService.GetNavigationService(this);
             navService.Navigate(new UserProfile(((Grid)sender).Uid));
         }
